@@ -557,5 +557,12 @@ function calculate(){
 	let CA_DMG = Damage(p_base,enemy_base,buff_list[i],target_list[i]);
 	let Total_DMG = totalDmg(WeaponName,sandsid.value);
 	console.log(totalDmg(WeaponName,sandsid.value,true),WeaponName,sandsid.value);
-	resultid.innerHTML = "<b>Stats for 2nd FFA/FFB<br>Raw ATK:"+status.NoBuffAttack+"<br>Total ATK:"+status.TotalAttack+"<br>Crit Rate:"+status.CritRate+"(Includes A4 buff)<br>Crit Damage:"+status.CritDmg+"<br>Elemental Mastery:"+status.ElementalMastery+"<br>Flost Flake Bloom Damage:"+CA_DMG+"<br>Total damage:"+Total_DMG+"</b>";
+	resultid.innerHTML = "<b>Stats for 2nd FFA/FFB
+		<br>Raw ATK:"+status.NoBuffAttack+"(Includes ATK from Polar Star stacks)
+		<br>Total ATK:"+status.TotalAttack+"
+		<br>Crit Rate:"+status.CritRate+"(Includes A4 buff)
+		<br>Crit Damage:"+status.CritDmg+"
+		<br>Elemental Mastery:"+status.ElementalMastery+"(Includes all buff)
+		<br>Flost Flake Bloom Damage:"+CA_DMG+"
+		<br>Total damage:"+Total_DMG+"</b>";
 }
