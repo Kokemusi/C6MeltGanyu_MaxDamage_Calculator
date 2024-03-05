@@ -75,7 +75,7 @@ let buff_list =	[
 		];
 let target_list = ["Normal","PCA","Skill","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Skill","Normal","FFA","FFB","Skill","FFA","FFB","Skill","FFA","FFB","Skill","Skill"];
 let PS_stack_list = [0,1,2,3,3,3,3,3,3,3,3,3,3,2,3,4,4,4,4,4,4,4,4,4,4];
-let Amos_stack_list = [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5];
+let Amos_stack_list = [0,0,5,5,5,5,5,5,5,5,5,5,5,5,0,0,3,5,0,3,5,0,3,5,5];
 function calc_db(Buffs){
 	let tdb={Normal:0,PCA:0,FFA:0,FFB:0,Skill:0,Burst:0};
 	if(!(Buffs==null)){
