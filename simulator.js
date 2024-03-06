@@ -142,7 +142,7 @@ function Weapon_Base(weapon,i){
 		return Aqua_Base();
 	}else if(weapon=="TheFirstGreatMagic"){
 		return TFGM_Base();
-	}else if(weapon=="HuntesPath"){
+	}else if(weapon=="HuntersPath"){
 		return Hunters_Base();
 	}
 }
