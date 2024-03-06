@@ -142,6 +142,8 @@ function Weapon_Base(weapon,i){
 		return Aqua_Base();
 	}else if(weapon=="TheFirstGreatMagic"){
 		return TFGM_Base();
+	}else if(weapon=="HuntesPath"){
+		return Hunters_Base();
 	}
 }
 function PolarStar_Base(stack){
@@ -256,7 +258,34 @@ function TFGM_Base(stack){
 			}
 	return tfgm_Base;
 }
-
+function Hunters_Base(stack){
+	let HP_Base =	{
+					lv:0,
+					batk:542,
+					atk:0,
+					fatk:0,
+					db:{
+						Normal:24,
+						PCA:24,
+						FFA:24,
+						FFB:24,
+						Skill:24,
+						Burst:24
+					},
+					cr:44.1,
+					cd:0,
+					em:0,
+					scale:{
+						Normal:0,
+						PCA:0,
+						FFA:0,
+						FFB:0,
+						Skill:0,
+						Burst:0
+					}
+			}
+	return tfgm_Base;
+}
 
 
 
@@ -444,7 +473,11 @@ function Damage(base,e_base,buff,target){
 	}else{
 		ResFix = ResFix - tRes/200;
 	}
-	return base.scale[target]/100*tAtk*CrtAvg*DmgBFix*MeltFix*Def*ResFix;
+	let HPFix = 0;
+	if(WeaponName == "HuntersPath" && (target == "FFA" || target == "FFB")){
+		HPFix = 3.20*EM;
+	}
+	return (base.scale[target]/100*tAtk+HPFix)*CrtAvg*DmgBFix*MeltFix*Def*ResFix;
 }
 function totalDmg(weapon,sands_m,detail){
 	let gtdmg = {Normal:0,PCA:0,FFA:0,FFB:0,Skill:0,Burst:0}
