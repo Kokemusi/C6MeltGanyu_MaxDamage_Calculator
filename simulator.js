@@ -284,7 +284,7 @@ function Hunters_Base(stack){
 						Burst:0
 					}
 			}
-	return tfgm_Base;
+	return HP_Base;
 }
 
 
