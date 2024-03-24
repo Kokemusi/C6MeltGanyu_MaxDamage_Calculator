@@ -45,7 +45,11 @@ function Kzh(EMBuff){
 	return buff;
 }
 let FS = {Normal:16,PCA:16,FFA:16,FFB:16,Skill:0,Burst:0};
-let ALL = calc_db([C4(20),A4,Kzh(120),FS]);
+let KazuhaC2 = 0;
+if(true){
+	KazuhaC2 = 200;
+}
+let ALL = calc_db([C4(20),A4,Kzh(120+KazuhaC2),FS]);
 let buff_list =	[
 		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0},//N
 		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0},//PCA
@@ -62,16 +66,16 @@ let buff_list =	[
 		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:1},//Q10(this is 3 sec after Q8)
 		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:-40,melt:0},//E
 		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:0,res:0,melt:0},//N
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-40,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-55,melt:1},//E
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250,res:-55,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-55,melt:1},//E
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250,res:-55,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-55,melt:1},//E(Blooms after 3CA)
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250,res:-55,melt:1},//E(Blooms after 3CA)
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-40,melt:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E(Blooms after 3CA)
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E(Blooms after 3CA)
 		];
 let target_list = ["Normal","PCA","Skill","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Skill","Normal","FFA","FFB","Skill","FFA","FFB","Skill","FFA","FFB","Skill","Skill"];
 let PS_stack_list = [0,1,2,3,3,3,3,3,3,3,3,3,3,2,3,4,4,4,4,4,4,4,4,4,4];
