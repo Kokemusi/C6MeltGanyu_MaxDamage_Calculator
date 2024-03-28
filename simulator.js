@@ -31,57 +31,6 @@ let sub_dict = {
 
 
 //Settings
-let artifact_set = {WT:{
-			lv:0,
-			batk:0,
-			atk:0,
-			fatk:311,
-			db:{
-				Normal:0,
-				PCA:35,
-				FFA:35+46.6,
-				FFB:35+46.6,
-				Skill:46.6,
-				Burst:46.6
-			},
-			cr:0,
-			cd:62.2,
-			em:80,
-			scale:{
-				Normal:0,
-				PCA:0,
-				FFA:0,
-				FFB:0,
-				Skill:0,
-				Burst:0
-			}
-		},
-		LW:{
-			lv:0,
-			batk:0,
-			atk:0,
-			fatk:311,
-			db:{
-				Normal:0,
-				PCA:0,
-				FFA:0+46.6,
-				FFB:0+46.6,
-				Skill:46.6,
-				Burst:46.6
-			},
-			cr:0,
-			cd:62.2,
-			em:0,
-			scale:{
-				Normal:0,
-				PCA:0,
-				FFA:0,
-				FFB:0,
-				Skill:0,
-				Burst:0
-			}
-		}
-};
 let WeaponName="AquaSimulacra" //PolarStar, Amos'sBow AquaSimulacra is available.
 let BennettbAtk = 799;
 let KazuhaEM = 1015;
@@ -381,7 +330,60 @@ let Substatus =	{
 
 
 function artifact_ref(s_main,art_set){
-	let Artifact = artifact_set[art_set];
+	let Artifact;
+	if(art_set=="WT"){
+		Artifact= {
+			lv:0,
+			batk:0,
+			atk:0,
+			fatk:311,
+			db:{
+				Normal:0,
+				PCA:35,
+				FFA:35+46.6,
+				FFB:35+46.6,
+				Skill:46.6,
+				Burst:46.6
+			},
+			cr:0,
+			cd:62.2,
+			em:80,
+			scale:{
+				Normal:0,
+				PCA:0,
+				FFA:0,
+				FFB:0,
+				Skill:0,
+				Burst:0
+			}
+		};
+	}else if(art_set=="LW"){
+		Artifact = {
+			lv:0,
+			batk:0,
+			atk:0,
+			fatk:311,
+			db:{
+				Normal:0,
+				PCA:0,
+				FFA:0+46.6,
+				FFB:0+46.6,
+				Skill:46.6,
+				Burst:46.6
+			},
+			cr:0,
+			cd:62.2,
+			em:0,
+			scale:{
+				Normal:0,
+				PCA:0,
+				FFA:0,
+				FFB:0,
+				Skill:0,
+				Burst:0
+			}
+		};
+	}
 	if(s_main == "em"){
 		Artifact.em=Artifact.em+187;
 	}else if(s_main == "atk"){
