@@ -380,8 +380,8 @@ let Substatus =	{
 };
 
 
-function artifact_ref(s_main){
-	let Artifact = artifact_set[setid];
+function artifact_ref(s_main,art_set){
+	let Artifact = artifact_set[art_set];
 	if(s_main == "em"){
 		Artifact.em=Artifact.em+187;
 	}else if(s_main == "atk"){
@@ -513,12 +513,12 @@ function Damage(base,e_base,buff,target){
 	}
 	return (base.scale[target]/100*tAtk+HPFix)*CrtAvg*DmgBFix*MeltFix*Def*ResFix;
 }
-function totalDmg(weapon,sands_m,detail){
+function totalDmg(weapon,sands_m,detail,art_set){
 	let gtdmg = {Normal:0,PCA:0,FFA:0,FFB:0,Skill:0,Burst:0}
 	let now_target;
 	let tdmg = 0;
 	for(let i=0; i<target_list.length; i++){
-		let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(weapon,i),artifact_ref(sands_m));
+		let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(weapon,i),artifact_ref(sands_m,art_set));
 		tdmg=tdmg+Damage(p_base,enemy_base,buff_list[i],target_list[i])
 		now_target=target_list[i];
 		gtdmg[now_target]=gtdmg[now_target]+Damage(p_base,enemy_base,buff_list[i],target_list[i]);
@@ -533,7 +533,7 @@ function totalDmg(weapon,sands_m,detail){
 //optimizing substatus
 let simu_start=document.getElementById('start');
 simu_start.addEventListener('click',calculate);
-function OptimizeSub(weapon,sands_m){
+function OptimizeSub(weapon,sands_m,art_set){
 	let sub = ["fatk","atk","cr","cd","em"];
 	let vec = [0,0];
 	let dmg1 = 0;
@@ -555,7 +555,7 @@ function OptimizeSub(weapon,sands_m){
 				Substatus[sub_a]++;
 				Substatus[sub_b]--;
 				if((sub_range[sub_a][0]<=Substatus[sub_a]  && Substatus[sub_a]<=sub_range[sub_a][1])&&(sub_range[sub_b][0]<=Substatus[sub_b]  && Substatus[sub_b]<=sub_range[sub_b][1])){
-					dmgList[vec[0]+vec[1]*sub.length]=totalDmg(weapon,sands_m);
+					dmgList[vec[0]+vec[1]*sub.length]=totalDmg(weapon,sands_m,false,art_set);
 				}else{
 					dmgList[vec[0]+vec[1]*sub.length]=-1/0;
 				}
@@ -618,7 +618,7 @@ function calculate(){
 	let resultid = document.getElementById("result");
 	let setid = document.getElementById("Artifact");
 	WeaponName=weaponid.value;
-	OptimizeSub(WeaponName,sandsid.value);
+	OptimizeSub(WeaponName,sandsid.value,setid.value);
 	let i = 19;
 	let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(WeaponName,i),artifact_ref(sandsid.value));
 	let status = CalcStat(p_base,buff_list[i],target_list[i]);
