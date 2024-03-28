@@ -31,6 +31,57 @@ let sub_dict = {
 
 
 //Settings
+let artifact_set = {WT:{
+			lv:0,
+			batk:0,
+			atk:0,
+			fatk:311,
+			db:{
+				Normal:0,
+				PCA:35,
+				FFA:35+46.6,
+				FFB:35+46.6,
+				Skill:46.6,
+				Burst:46.6
+			},
+			cr:0,
+			cd:62.2,
+			em:80,
+			scale:{
+				Normal:0,
+				PCA:0,
+				FFA:0,
+				FFB:0,
+				Skill:0,
+				Burst:0
+			}
+		},
+		LW:{
+			lv:0,
+			batk:0,
+			atk:0,
+			fatk:311,
+			db:{
+				Normal:0,
+				PCA:0,
+				FFA:0+46.6,
+				FFB:0+46.6,
+				Skill:46.6,
+				Burst:46.6
+			},
+			cr:0,
+			cd:62.2,
+			em:0,
+			scale:{
+				Normal:0,
+				PCA:0,
+				FFA:0,
+				FFB:0,
+				Skill:0,
+				Burst:0
+			}
+		}
+};
 let WeaponName="AquaSimulacra" //PolarStar, Amos'sBow AquaSimulacra is available.
 let BennettbAtk = 799;
 let KazuhaEM = 1015;
@@ -330,31 +381,7 @@ let Substatus =	{
 
 
 function artifact_ref(s_main){
-	let Artifact =	{
-			lv:0,
-			batk:0,
-			atk:0,
-			fatk:311,
-			db:{
-				Normal:0,
-				PCA:35,
-				FFA:35+46.6,
-				FFB:35+46.6,
-				Skill:46.6,
-				Burst:46.6
-			},
-			cr:0,
-			cd:62.2,
-			em:80,
-			scale:{
-				Normal:0,
-				PCA:0,
-				FFA:0,
-				FFB:0,
-				Skill:0,
-				Burst:0
-			}
-	};
+	let Artifact = artifact_set[setid];
 	if(s_main == "em"){
 		Artifact.em=Artifact.em+187;
 	}else if(s_main == "atk"){
@@ -456,6 +483,9 @@ function Damage(base,e_base,buff,target){
 	let fAtk = base.fatk+buff.fatk;
 	let tAtk = base.batk*(1+Atk/100)+fAtk;
 	let tDmgB = base.db[target]+buff.db[target];
+	if(setid=="LW"){
+		tDmgB += 35;
+	}
 	let DmgBFix = (1+tDmgB/100);
 	let CrtRate = base.cr+buff.cr;
 	let CrtDmg = base.cd+buff.cd;
@@ -586,6 +616,7 @@ function calculate(){
 	let weaponid = document.getElementById("Weapon");
 	let sandsid = document.getElementById("Sands");
 	let resultid = document.getElementById("result");
+	let setid = document.getElementById("Artifact");
 	WeaponName=weaponid.value;
 	OptimizeSub(WeaponName,sandsid.value);
 	let i = 19;
