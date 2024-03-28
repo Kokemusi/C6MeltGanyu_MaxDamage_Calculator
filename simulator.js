@@ -617,6 +617,7 @@ function calculate(){
 	let sandsid = document.getElementById("Sands");
 	let resultid = document.getElementById("result");
 	let setid = document.getElementById("Artifact");
+	console.log(artifact_set[setid.value]);
 	WeaponName=weaponid.value;
 	OptimizeSub(WeaponName,sandsid.value,setid.value);
 	let i = 19;
