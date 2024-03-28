@@ -477,13 +477,13 @@ function CalcStat(base,buff,target){
 
 //damage calculating
 let enemy_base = {lv:90,res:10};
-function Damage(base,e_base,buff,target){
+function Damage(base,e_base,buff,target,art_set){
 	let Def = (base.lv+100)/(e_base.lv+base.lv+200);
 	let Atk = base.atk+buff.atk;
 	let fAtk = base.fatk+buff.fatk;
 	let tAtk = base.batk*(1+Atk/100)+fAtk;
 	let tDmgB = base.db[target]+buff.db[target];
-	if(setid=="LW"){
+	if(art_set=="LW"){
 		tDmgB += 35;
 	}
 	let DmgBFix = (1+tDmgB/100);
@@ -519,7 +519,7 @@ function totalDmg(weapon,sands_m,detail,art_set){
 	let tdmg = 0;
 	for(let i=0; i<target_list.length; i++){
 		let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(weapon,i),artifact_ref(sands_m,art_set));
-		tdmg=tdmg+Damage(p_base,enemy_base,buff_list[i],target_list[i])
+		tdmg=tdmg+Damage(p_base,enemy_base,buff_list[i],target_list[i],art_set)
 		now_target=target_list[i];
 		gtdmg[now_target]=gtdmg[now_target]+Damage(p_base,enemy_base,buff_list[i],target_list[i]);
 	}
