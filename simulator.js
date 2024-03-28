@@ -383,6 +383,8 @@ function artifact_ref(s_main,art_set){
 				Burst:0
 			}
 		};
+	}else{
+		console.log("error:art_set="+art_set);
 	}
 	if(s_main == "em"){
 		Artifact.em=Artifact.em+187;
@@ -485,7 +487,7 @@ function Damage(base,e_base,buff,target,art_set){
 	let fAtk = base.fatk+buff.fatk;
 	let tAtk = base.batk*(1+Atk/100)+fAtk;
 	let tDmgB = base.db[target]+buff.db[target];
-	if(art_set=="LW"){
+	if(art_set=="LW" && buff.melt==1){
 		tDmgB += 35;
 	}
 	let DmgBFix = (1+tDmgB/100);
@@ -516,6 +518,7 @@ function Damage(base,e_base,buff,target,art_set){
 	return (base.scale[target]/100*tAtk+HPFix)*CrtAvg*DmgBFix*MeltFix*Def*ResFix;
 }
 function totalDmg(weapon,sands_m,detail,art_set){
+	console.log("totalDmg",art_set);
 	let gtdmg = {Normal:0,PCA:0,FFA:0,FFB:0,Skill:0,Burst:0}
 	let now_target;
 	let tdmg = 0;
@@ -523,7 +526,7 @@ function totalDmg(weapon,sands_m,detail,art_set){
 		let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(weapon,i),artifact_ref(sands_m,art_set));
 		tdmg=tdmg+Damage(p_base,enemy_base,buff_list[i],target_list[i],art_set)
 		now_target=target_list[i];
-		gtdmg[now_target]=gtdmg[now_target]+Damage(p_base,enemy_base,buff_list[i],target_list[i]);
+		gtdmg[now_target]=gtdmg[now_target]+Damage(p_base,enemy_base,buff_list[i],target_list[i],art_set);
 	}
 	if(detail){
 		return gtdmg;
@@ -619,13 +622,15 @@ function calculate(){
 	let sandsid = document.getElementById("Sands");
 	let resultid = document.getElementById("result");
 	let setid = document.getElementById("Artifact");
+	console.log(setid.value);
 	WeaponName=weaponid.value;
 	OptimizeSub(WeaponName,sandsid.value,setid.value);
+	console.log("done");
 	let i = 19;
-	let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(WeaponName,i),artifact_ref(sandsid.value));
+	let p_base = CalcBaseStats(Ganyu_Base(),Weapon_Base(WeaponName,i),artifact_ref(sandsid.value,setid.value));
 	let status = CalcStat(p_base,buff_list[i],target_list[i]);
-	let CA_DMG = Damage(p_base,enemy_base,buff_list[i],target_list[i]);
-	let Total_DMG = totalDmg(WeaponName,sandsid.value);
-	console.log(totalDmg(WeaponName,sandsid.value,true),WeaponName,sandsid.value);
+	let CA_DMG = Damage(p_base,enemy_base,buff_list[i],target_list[i],setid.value);
+	let Total_DMG = totalDmg(WeaponName,sandsid.value,false,setid.value);
+	console.log(totalDmg(WeaponName,sandsid.value,true,setid.value),WeaponName,sandsid.value);
 	resultid.innerHTML = "<b>Stats for 2nd FFA/FFB<br>Raw ATK:"+status.NoBuffAttack+"(Includes ATK from Polar Star stacks)<br>Total ATK:"+status.TotalAttack+"<br>Crit Rate:"+status.CritRate+"(Includes A4 buff)<br>Crit Damage:"+status.CritDmg+"<br>Elemental Mastery:"+status.ElementalMastery+"(Includes all buff)<br>Flost Flake Bloom Damage:"+CA_DMG+"<br>Total damage:"+Total_DMG+"</b>";
 }
