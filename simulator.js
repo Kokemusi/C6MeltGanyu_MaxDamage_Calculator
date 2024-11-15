@@ -63,7 +63,7 @@ let buff_list =	[
 		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//Q7
 		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1},//Q8(this is 3 sec after Q6)
 		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//Q9
-		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1,}//Q10(this is 3 sec after Q8)
+		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1},//Q10(this is 3 sec after Q8)
 		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//E
 		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:0,res:0,melt:0,pyro:1},//N
 		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-40,melt:1,pyro:1},//CA1
@@ -267,7 +267,7 @@ function TFGM_Base(stack){
 function Hunters_Base(stack){
 	let HP_Base =	{
 					lv:0,
-					batk:608,
+					batk:542,
 					atk:0,
 					fatk:0,
 					db:{
@@ -295,7 +295,7 @@ function Hunters_Base(stack){
 function ATCP_Base(stack){
 	let ATCP_Base =	{
 					lv:0,
-					batk:542,
+					batk:608,
 					atk:0,
 					fatk:0,
 					db:{
