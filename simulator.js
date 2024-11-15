@@ -51,31 +51,31 @@ if(true){
 }
 let ALL = calc_db([C4(20),A4,Kzh(120+KazuhaC2),FS]);
 let buff_list =	[
-		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0},//N
-		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0},//PCA
-		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0},//E
-		{atk:0,fatk:0,db:C4(5),cr:0,cd:0,em:0,res:0,melt:0},//Q1
-		{atk:0,fatk:0,db:C4(5),cr:0,cd:0,em:0,res:-40,melt:0},//Q2
-		{atk:0,fatk:0,db:C4(10),cr:0,cd:0,em:0,res:-40,melt:0},//Q3
-		{atk:0,fatk:0,db:C4(10),cr:0,cd:0,em:0,res:-40,melt:1},//Q4(Pyro applicated few seconds before this one hits)
-		{atk:0,fatk:0,db:C4(15),cr:0,cd:0,em:0,res:-40,melt:0},//Q5
-		{atk:0,fatk:0,db:C4(15),cr:0,cd:0,em:0,res:-40,melt:1},//Q6(this is 3 sec after Q4)
-		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:0},//Q7
-		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:1},//Q8(this is 3 sec after Q6)
-		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:0},//Q9
-		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:1},//Q10(this is 3 sec after Q8)
-		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:-40,melt:0},//E
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:0,res:0,melt:0},//N
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-40,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA1
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//CA2
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E(Blooms after 3CA)
-		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1},//E(Blooms after 3CA)
+		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0,pyro:0},//N
+		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0,pyro:0},//PCA
+		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:0,melt:0,pyro:0},//E
+		{atk:0,fatk:0,db:C4(5),cr:0,cd:0,em:0,res:0,melt:0,pyro:0},//Q1
+		{atk:0,fatk:0,db:C4(5),cr:0,cd:0,em:0,res:-40,melt:0,pyro:0},//Q2
+		{atk:0,fatk:0,db:C4(10),cr:0,cd:0,em:0,res:-40,melt:0,pyro:0},//Q3
+		{atk:0,fatk:0,db:C4(10),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1},//Q4(Pyro applicated few seconds before this one hits)
+		{atk:0,fatk:0,db:C4(15),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//Q5
+		{atk:0,fatk:0,db:C4(15),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1},//Q6(this is 3 sec after Q4)
+		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//Q7
+		{atk:0,fatk:0,db:C4(20),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1},//Q8(this is 3 sec after Q6)
+		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//Q9
+		{atk:0,fatk:0,db:C4(25),cr:0,cd:0,em:0,res:-40,melt:1,pyro:1,//Q10(this is 3 sec after Q8)
+		{atk:0,fatk:0,db:calc_db(),cr:0,cd:0,em:0,res:-40,melt:0,pyro:1},//E
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:0,res:0,melt:0,pyro:1},//N
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-40,melt:1,pyro:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//E
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//E
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//CA1
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:20,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//CA2
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//E(Blooms after 3CA)
+		{atk:48+20,fatk:1.32*BennettbAtk,db:ALL,cr:0,cd:0,em:120+250+KazuhaC2,res:-55,melt:1,pyro:1},//E(Blooms after 3CA)
 		];
 let target_list = ["Normal","PCA","Skill","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Burst","Skill","Normal","FFA","FFB","Skill","FFA","FFB","Skill","FFA","FFB","Skill","Skill"];
 let PS_stack_list = [0,1,2,3,3,3,3,3,3,3,3,3,3,2,3,4,4,4,4,4,4,4,4,4,4];
@@ -148,6 +148,8 @@ function Weapon_Base(weapon,i){
 		return TFGM_Base();
 	}else if(weapon=="HuntersPath"){
 		return Hunters_Base();
+	}else if(weapon=="AstralVulture'sCrimsonPlumage"){
+		return ATCP_Base();
 	}
 }
 function PolarStar_Base(stack){
@@ -265,7 +267,7 @@ function TFGM_Base(stack){
 function Hunters_Base(stack){
 	let HP_Base =	{
 					lv:0,
-					batk:542,
+					batk:608,
 					atk:0,
 					fatk:0,
 					db:{
@@ -290,7 +292,34 @@ function Hunters_Base(stack){
 			}
 	return HP_Base;
 }
-
+function ATCP_Base(stack){
+	let ATCP_Base =	{
+					lv:0,
+					batk:542,
+					atk:0,
+					fatk:0,
+					db:{
+						Normal:96,
+						PCA:96,
+						FFA:96,
+						FFB:96,
+						Skill:48,
+						Burst:48
+					},
+					cr:0,
+					cd:66.2,
+					em:0,
+					scale:{
+						Normal:0,
+						PCA:0,
+						FFA:0,
+						FFB:0,
+						Skill:0,
+						Burst:0
+					}
+			}
+	return ATCP_Base;
+}
 
 
 //ArtifactData. lv means char lv, and it doesn't add so it is 0.
@@ -487,7 +516,7 @@ function Damage(base,e_base,buff,target,art_set){
 	let fAtk = base.fatk+buff.fatk;
 	let tAtk = base.batk*(1+Atk/100)+fAtk;
 	let tDmgB = base.db[target]+buff.db[target];
-	if(art_set=="LW" && buff.melt==1){
+	if(art_set=="LW" && buff.pyro==1){
 		tDmgB += 35;
 	}
 	let DmgBFix = (1+tDmgB/100);
