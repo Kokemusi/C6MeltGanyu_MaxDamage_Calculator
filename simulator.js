@@ -31,7 +31,8 @@ let sub_dict = {
 
 
 //Settings
-let WeaponName="AquaSimulacra" //PolarStar, Amos'sBow AquaSimulacra is available.
+let WeaponName="AquaSimulacra";
+let R = 1;
 let BennettbAtk = 799;
 let KazuhaEM = 1015;
 function C4(am){
@@ -156,15 +157,15 @@ function PolarStar_Base(stack){
 	let PS_Base =	{
 					lv:0,
 					batk:608,
-					atk:ps_dict[stack],
+					atk:ps_dict[stack]*(3+R)/8,
 					fatk:0,
 					db:{
 						Normal:0,
 						PCA:0,
 						FFA:0,
 						FFB:0,
-						Skill:24,
-						Burst:24
+						Skill:24*(3+R)/8,
+						Burst:24*(3+R)/8
 					},
 					cr:33.1,
 					cd:0,
@@ -187,10 +188,10 @@ function Amos_Base(stack){
 					atk:49.6,
 					fatk:0,
 					db:{
-						Normal:24+16*stack,
-						PCA:24+16*stack,
-						FFA:24+16*stack,
-						FFB:24+16*stack,
+						Normal:(24+16*stack)*(3+R)/8,
+						PCA:(24+16*stack)*(3+R)/8,
+						FFA:(24+16*stack)*(3+R)/8,
+						FFB:(24+16*stack)*(3+R)/8,
 						Skill:0,
 						Burst:0
 					},
@@ -215,12 +216,12 @@ function Aqua_Base(stack){
 					atk:0,
 					fatk:0,
 					db:{
-						Normal:40,
-						PCA:40,
-						FFA:40,
-						FFB:40,
-						Skill:40,
-						Burst:40
+						Normal:40*(3+R)/8,
+						PCA:40*(3+R)/8,
+						FFA:40*(3+R)/8,
+						FFB:40*(3+R)/8,
+						Skill:40*(3+R)/8,
+						Burst:40*(3+R)/8
 					},
 					cr:0,
 					cd:88.2,
@@ -240,13 +241,13 @@ function TFGM_Base(stack){
 	let tfgm_Base =	{
 					lv:0,
 					batk:608,
-					atk:32,
+					atk:32*(3+R)/8,
 					fatk:0,
 					db:{
 						Normal:0,
-						PCA:32,
-						FFA:32,
-						FFB:32,
+						PCA:32*(3+R)/8,
+						FFA:32*(3+R)/8,
+						FFB:32*(3+R)/8,
 						Skill:0,
 						Burst:0
 					},
@@ -271,12 +272,12 @@ function Hunters_Base(stack){
 					atk:0,
 					fatk:0,
 					db:{
-						Normal:24,
-						PCA:24,
-						FFA:24,
-						FFB:24,
-						Skill:24,
-						Burst:24
+						Normal:24*(3+R)/8,
+						PCA:24*(3+R)/8,
+						FFA:24*(3+R)/8,
+						FFB:24*(3+R)/8,
+						Skill:24*(3+R)/8,
+						Burst:24*(3+R)/8
 					},
 					cr:44.1,
 					cd:0,
@@ -299,12 +300,12 @@ function ATCP_Base(stack){
 					atk:0,
 					fatk:0,
 					db:{
-						Normal:96,
-						PCA:96,
-						FFA:96,
-						FFB:96,
-						Skill:48,
-						Burst:48
+						Normal:96*(3+R)/8,
+						PCA:96*(3+R)/8,
+						FFA:96*(3+R)/8,
+						FFB:96*(3+R)/8,
+						Skill:48*(3+R)/8,
+						Burst:48*(3+R)/8
 					},
 					cr:0,
 					cd:66.2,
@@ -542,7 +543,7 @@ function Damage(base,e_base,buff,target,art_set){
 	}
 	let HPFix = 0;
 	if(WeaponName == "HuntersPath" && (target == "FFA" || target == "FFB")){
-		HPFix = 3.20*EM;
+		HPFix = 3.20*(3+R)/8*EM;
 	}
 	return (base.scale[target]/100*tAtk+HPFix)*CrtAvg*DmgBFix*MeltFix*Def*ResFix;
 }
@@ -651,8 +652,10 @@ function calculate(){
 	let sandsid = document.getElementById("Sands");
 	let resultid = document.getElementById("result");
 	let setid = document.getElementById("Artifact");
+	let rankid = document.getElementById("RefinementRank");
 	console.log(setid.value);
 	WeaponName=weaponid.value;
+	R = rankid.value;
 	OptimizeSub(WeaponName,sandsid.value,setid.value);
 	console.log("done");
 	let i = 19;
