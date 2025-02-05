@@ -655,8 +655,7 @@ function calculate(){
 	let rankid = document.getElementById("RefinementRank");
 	console.log(setid.value);
 	WeaponName=weaponid.value;
-	R = rankid.value;
-	console.log((3+r)/8);
+	R = 1*rankid.value;
 	OptimizeSub(WeaponName,sandsid.value,setid.value);
 	console.log("done");
 	let i = 19;
